@@ -13,10 +13,6 @@ Stationary units have been deployed all over world. CS was used in the "weather 
  > use pachube (some units live currently: https://pachube.com/feeds?user=weathertunnel)
  > schematic on Upverter: http://upverter.com/jmsaavedra/634b5640a5bbd8a7/Citizen-Sensor---Stationary-Version-02/
 
-*mobile*
- > operate as bluetooth peripherals for an Android application
- > arduino based
- > battery powered
- > updates output to LAYAR, google maps, and private social networks
- > pachube support coming
-
+more info: 
+	- http://thesis.jmsaavedra.com/prototypes/technology/weather-tunnel-project-at-translife-2011/
+	- http://tasml.parsons.edu/weathertunnel/sensor-information/
