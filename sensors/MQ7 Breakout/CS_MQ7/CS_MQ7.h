@@ -14,22 +14,20 @@
 #ifndef CS_MQ7_h
 #define CS_MQ7_h
 
-#include "WProgram.h"
-
 class CS_MQ7{
 
 	public:
 		
 		CS_MQ7(int CoTogPin, int CoIndicatorPin);
 		void CoPwrCycler();
-		boolean CurrentState();
+		bool CurrentState();
 		
 		unsigned long time;
 		unsigned long currTime;
 		unsigned long prevTime;
 		unsigned long currCoPwrTimer;
 
-		boolean CoPwrState;
+		bool CoPwrState;
 		
 	private:
 		int _CoIndicatorPin;

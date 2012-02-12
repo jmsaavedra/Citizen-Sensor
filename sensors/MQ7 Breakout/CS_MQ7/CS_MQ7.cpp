@@ -11,7 +11,13 @@
 
 */
 
-#include "WProgram.h"
+#if (ARDUINO >= 100)
+    #include "Arduino.h"
+#else
+    #include <avr/io.h>
+    #include "WProgram.h"
+#endif
+
 #include "CS_MQ7.h"
 
 CS_MQ7::CS_MQ7(int CoTogPin, int CoIndicatorPin){
@@ -51,7 +57,7 @@ void CS_MQ7::CoPwrCycler(){
   }
 }
 
-boolean CS_MQ7::CurrentState(){
+bool CS_MQ7::CurrentState(){
 	
 	if(CoPwrState == LOW){
 		return false;
