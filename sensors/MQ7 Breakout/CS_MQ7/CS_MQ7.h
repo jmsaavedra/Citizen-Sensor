@@ -19,15 +19,17 @@ class CS_MQ7{
 	public:
 		
 		CS_MQ7(int CoTogPin, int CoIndicatorPin);
+        CS_MQ7(int CoTogPin);
 		void CoPwrCycler();
-		bool CurrentState();
+		boolean currentState();
 		
 		unsigned long time;
 		unsigned long currTime;
 		unsigned long prevTime;
 		unsigned long currCoPwrTimer;
 
-		bool CoPwrState;
+		boolean CoPwrState;
+        boolean indicatorAttached;
 		
 	private:
 		int _CoIndicatorPin;

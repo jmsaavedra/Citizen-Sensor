@@ -27,6 +27,8 @@ CS_MQ7::CS_MQ7(int CoTogPin, int CoIndicatorPin){
 	
 	_CoIndicatorPin = CoIndicatorPin;
 	_CoTogPin = CoTogPin;
+    
+    indicatorAttached = true; //we are using an LED to show heater
 	
 	time = 0;
 	currTime = 0;
@@ -35,6 +37,23 @@ CS_MQ7::CS_MQ7(int CoTogPin, int CoIndicatorPin){
 	CoPwrState = LOW;
   	currCoPwrTimer = 500;
 	
+}
+
+CS_MQ7::CS_MQ7(int CoTogPin){
+    
+	pinMode(CoTogPin, OUTPUT);
+	
+    indicatorAttached = false; //not using an LED
+    
+	_CoTogPin = CoTogPin;
+	
+	time = 0;
+	currTime = 0;
+	prevTime = 0;
+	currCoPwrTimer = 0;
+	CoPwrState = LOW;
+  	currCoPwrTimer = 500;
+    
 }
 
 void CS_MQ7::CoPwrCycler(){
@@ -52,12 +71,12 @@ void CS_MQ7::CoPwrCycler(){
       CoPwrState = LOW;
       currCoPwrTimer = 90000;  //90 seconds at 1.4v
     }
-    digitalWrite(_CoIndicatorPin, CoPwrState);
+    if(indicatorAttached) digitalWrite(_CoIndicatorPin, CoPwrState);
     digitalWrite(_CoTogPin, CoPwrState);
   }
 }
 
-bool CS_MQ7::CurrentState(){
+boolean CS_MQ7::currentState(){
 	
 	if(CoPwrState == LOW){
 		return false;
